@@ -2,6 +2,7 @@ import { Deposit } from './Deposit';
 import { Withdrawal } from './Withdrawal';
 import { Transfer } from './Transfer';
 import { Payment } from './Payment';
+import { Chargeback } from './Chargeback';  
 
 export class MovementFactory {
   static createMovement(data) {
@@ -16,6 +17,8 @@ export class MovementFactory {
         return new Transfer(data);
       case 'payment':
         return new Payment(data);
+      case 'chargeback': 
+        return new Chargeback(data);
       default:
         throw new Error(`Tipo de movimiento desconocido: ${data.type}`);
     }
